@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Onchain Flamingo Eggs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <section class="hero">
+    <div class="left">
+      <div class="kicker">FULLY ONCHAIN SVG / ETHEREUM</div>
+      <h1>Onchain Flamingo Eggs</h1>
+      <p class="desc">Mint an onchain flamingo egg. After 3 hours, the egg reveals into a fully onchain SVG flamingo.</p>
+
+      <div class="connect">
+        <button id="connectWalletBtn">Connect Wallet</button>
+        <button id="disconnectBtn" class="ghost">Disconnect</button>
+        <span id="wallet">not connected</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>10,000</b><span>Supply</span></div>
+        <div class="stat"><b>1 FREE</b><span>Per wallet</span></div>
+        <div class="stat"><b>0.00005 ETH</b><span>Next mints</span></div>
+        <div class="stat"><b>3 HOURS</b><span>Reveal</span></div>
+      </div>
+
+      <div class="mintBox">
+        <div class="counter">
+          <button id="minusBtn">−</button>
+          <input id="amountInput" value="1">
+          <button id="plusBtn">+</button>
+        </div>
+        <div class="priceBox">
+          <span>Total price</span>
+          <b id="priceText">FREE</b>
+        </div>
+        <button id="mintBtn" class="mint">Mint Eggs</button>
+      </div>
+
+      <div class="progressWrap">
+        <div class="progressTop">
+          <span>Mint progress</span>
+          <span id="mintedText">0 / 10000</span>
+        </div>
+        <div class="bar"><div id="progressBar"></div></div>
+      </div>
+
+      <div class="miniStats">
+        <div><span>Balance</span><b id="balanceText">-</b></div>
+        <div><span>Minted by wallet</span><b id="mintedByWalletText">-</b></div>
+        <div><span>Network</span><b id="networkText">-</b></div>
+      </div>
+
+      <div class="linksRow">
+        <a id="openseaLink" href="#" target="_blank">OpenSea</a>
+        <a id="etherscanLink" href="#" target="_blank">Etherscan</a>
+      </div>
+
+      <p id="status"></p>
+    </div>
+
+    <div class="right">
+      <div class="eggPreview">
+        <svg viewBox="0 0 500 500">
+          <defs>
+            <radialGradient id="bg" cx="50%" cy="35%" r="70%">
+              <stop offset="0%" stop-color="#ffd1dc"/>
+              <stop offset="55%" stop-color="#101725"/>
+              <stop offset="100%" stop-color="#02040a"/>
+            </radialGradient>
+            <linearGradient id="egg" x1="0" x2="1">
+              <stop offset="0%" stop-color="#fff6fb"/>
+              <stop offset="55%" stop-color="#ff9ac8"/>
+              <stop offset="100%" stop-color="#ff4fa3"/>
+            </linearGradient>
+          </defs>
+          <rect width="500" height="500" fill="url(#bg)"/>
+          <circle cx="80" cy="90" r="2" fill="#fff"/>
+          <circle cx="410" cy="120" r="2" fill="#fff"/>
+          <circle cx="350" cy="390" r="2" fill="#fff"/>
+          <ellipse cx="250" cy="410" rx="120" ry="20" fill="#000" opacity=".35"/>
+          <path d="M250 95 C145 95 105 260 130 345 C155 430 345 430 370 345 C395 260 355 95 250 95Z" fill="url(#egg)" stroke="#fff" stroke-width="8"/>
+          <path d="M210 180 L245 215 L225 250 L270 295 L250 335" stroke="#461122" stroke-width="8" fill="none" opacity=".75"/>
+          <text x="88" y="465" fill="#fff" font-family="monospace" font-size="18">EGG → FLAMINGO / 3H REVEAL</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallerySection">
+    <div class="galleryHead">
+      <div>
+        <div class="kicker">LIVE CONTRACT GALLERY</div>
+        <h2>Minted Eggs</h2>
+      </div>
+      <button id="loadGalleryBtn">Load Gallery</button>
+    </div>
+    <p class="galleryNote">Shows latest minted tokens from tokenURI(). Revealed tokens will update after 3 hours.</p>
+    <div id="gallery" class="gallery"></div>
+  </section>
+</main>
+
+<div id="walletModal" class="modal hidden">
+  <div class="modalCard">
+    <button id="closeModalBtn" class="close">×</button>
+    <h3>Connect Wallet</h3>
+    <p>Choose wallet connection</p>
+    <button id="browserWalletBtn" class="walletOption">MetaMask / Rabby / Browser Wallet</button>
+    <button id="walletConnectBtn" class="walletOption">WalletConnect QR / Mobile Wallets</button>
+  </div>
+</div>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
